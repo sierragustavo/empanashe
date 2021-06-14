@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from './product';
 
 @Component({
   selector: 'app-products-list',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent implements OnInit {
-  products = [
+  products: Product[] = [
     {
       name: 'Jamon y queso',
       type: 'Empanada',
@@ -15,12 +16,19 @@ export class ProductsListComponent implements OnInit {
       image: '../assets/img/empanada.png',
     },
     {
+      name: 'Carne dulce',
+      type: 'Empanada',
+      price: 70,
+      stock: 0,
+      image: '../assets/img/empanada.png',
+    },
+    {
       name: 'Pollo',
       type: 'Tarta',
       price: 430,
       stock: 5,
       image: '../assets/img/tarta.png',
-    }
+    },
   ];
 
   constructor() {}

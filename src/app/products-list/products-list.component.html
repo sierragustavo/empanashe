@@ -10,11 +10,15 @@
   </thead>
   <tbody class="tbody">
     <tr *ngFor="let product of products; let i = index">
-        <img [src]=product.image class="icon-list img-thumbnail" alt="">
-        <td>{{product.name}}</td>
-        <td>{{product.type}}</td>
-        <td>${{product.price}}</td>
-        <td>{{product.stock}}</td>
+      <img [src]="product.image" class="icon-list img-thumbnail" alt="" />
+      <td>{{ product.name }}</td>
+      <td>{{ product.type }}</td>
+      <td>$ {{ product.price }}</td>
+
+      <td>
+        <span *ngIf="product.stock > 0">{{product.stock}}</span>
+        <span *ngIf="product.stock <= 0">Sin Stock</span>
+      </td>
     </tr>
   </tbody>
 </table>
