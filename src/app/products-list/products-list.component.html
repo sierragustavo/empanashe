@@ -6,10 +6,14 @@
       <th>Tipo</th>
       <th>Precio</th>
       <th>Stock</th>
+      <th></th>
     </tr>
   </thead>
   <tbody class="tbody">
-    <tr *ngFor="let product of products" [ngClass]="{'bg-light': product.special}">
+    <tr
+      *ngFor="let product of products"
+      [ngClass]="{ 'bg-light': product.special }"
+    >
       <td>
         <img
           [src]="product.image"
@@ -17,12 +21,18 @@
           [alt]="product.type"
         />
       </td>
-      <td>{{ product.name}}</td>
+      <td>{{ product.name }}</td>
       <td>{{ product.type }}</td>
-      <td>{{ product.price | currency}}</td>
+      <td>{{ product.price | currency }}</td>
       <td>
         <span class="badge bg-success" *ngIf="product.stock > 0">{{product.stock}}</span>
         <span class="badge bg-warning text-dark" *ngIf="product.stock <= 0">Sin Stock</span>
+      </td>
+      <td>
+        <button class="btn btn-outline-primary btn-sm" (click)="decreaseQuantity(product)">-</button
+        ><span> {{ product.quantity }} </span
+        ><button class="btn btn-outline-primary btn-sm" (click)="upQuantity(product)">+</button>
+        <button class="btn btn-primary btn-sm button-agregar">Agregar</button>
       </td>
     </tr>
   </tbody>
