@@ -3,7 +3,8 @@ export interface Product {
     type: string;
     price: number;
     stock: number;
+    altstock: number;
     image: string;
     special: boolean;
-    quantity: number;
+    quantityInput: number;
 }
