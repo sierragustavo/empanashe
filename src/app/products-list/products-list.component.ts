@@ -19,7 +19,7 @@ export class ProductsListComponent implements OnInit {
       name: 'Carne dulce',
       type: 'Empanada',
       price: 70,
-      stock: 0,
+      stock: -10,
       image: '../assets/img/empanada.png',
     },
     {
