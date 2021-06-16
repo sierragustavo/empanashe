@@ -14,6 +14,7 @@ export class ProductsListComponent implements OnInit {
       price: 70,
       stock: 50,
       image: '../assets/img/empanada.png',
+      special: false,
     },
     {
       name: 'Carne dulce',
@@ -21,6 +22,7 @@ export class ProductsListComponent implements OnInit {
       price: 70,
       stock: -10,
       image: '../assets/img/empanada.png',
+      special: true,
     },
     {
       name: 'Pollo',
@@ -28,6 +30,7 @@ export class ProductsListComponent implements OnInit {
       price: 430,
       stock: 5,
       image: '../assets/img/tarta.png',
+      special: false,
     },
   ];
 

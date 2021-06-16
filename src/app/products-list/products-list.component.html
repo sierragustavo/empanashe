@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody class="tbody">
-    <tr *ngFor="let product of products">
+    <tr *ngFor="let product of products" [ngClass]="{'bg-light': product.special}">
       <td>
         <img
           [src]="product.image"
@@ -17,12 +17,12 @@
           [alt]="product.type"
         />
       </td>
-      <td>{{ product.name }}</td>
+      <td>{{ product.name}}</td>
       <td>{{ product.type }}</td>
-      <td>$ {{ product.price }}</td>
+      <td>{{ product.price | currency}}</td>
       <td>
-        <span *ngIf="product.stock > 0">{{product.stock}}</span>
-        <span class="badge badge-warning" *ngIf="product.stock <= 0">Sin Stock</span>
+        <span class="badge bg-success" *ngIf="product.stock > 0">{{product.stock}}</span>
+        <span class="badge bg-warning text-dark" *ngIf="product.stock <= 0">Sin Stock</span>
       </td>
     </tr>
   </tbody>
