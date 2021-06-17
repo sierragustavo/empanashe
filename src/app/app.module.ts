@@ -9,6 +9,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { FormsModule } from '@angular/forms';
 import { EmpanasheAboutComponent } from './empanashe-about/empanashe-about.component';
 import { ArmarPedidoComponent } from './armar-pedido/armar-pedido.component';
+import { EmpanasheContactComponent } from './empanashe-contact/empanashe-contact.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ArmarPedidoComponent } from './armar-pedido/armar-pedido.component';
     ProductsListComponent,
     ShoppingCartComponent,
     EmpanasheAboutComponent,
-    ArmarPedidoComponent
+    ArmarPedidoComponent,
+    EmpanasheContactComponent
   ],
   imports: [
     BrowserModule,
