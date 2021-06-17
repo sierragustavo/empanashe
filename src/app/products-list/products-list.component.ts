@@ -70,7 +70,7 @@ export class ProductsListComponent implements OnInit {
     } else alert('mas de 0');
   }
 
-  onInputInquantityInput(event: KeyboardEvent, product: Product) {
+  onInputInQuantity(event: KeyboardEvent, product: Product) {
     if (event.key == 'Enter') this.onChangequantityInput(product);
   }
 
