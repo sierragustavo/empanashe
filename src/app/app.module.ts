@@ -7,12 +7,16 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 import { FormsModule } from '@angular/forms';
+import { EmpanasheAboutComponent } from './empanashe-about/empanashe-about.component';
+import { ArmarPedidoComponent } from './armar-pedido/armar-pedido.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsListComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    EmpanasheAboutComponent,
+    ArmarPedidoComponent
   ],
   imports: [
     BrowserModule,
