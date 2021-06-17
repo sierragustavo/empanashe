@@ -25,10 +25,11 @@
       <td>{{ product.type }}</td>
       <td>{{ product.price | currency }}</td>
       <td>
+        <span class="badge bg-danger" *ngIf="product.stock<=0 && product.altstock<=0">Sin Stock</span>
         <span class="badge bg-success" *ngIf="product.altstock > 0">{{product.altstock}}</span>
-        <span class="badge bg-warning text-dark" *ngIf="product.altstock <= 0">Sin Stock</span>
+        <span class="badge bg-warning text-dark" *ngIf="product.altstock <= 0 && product.stock>0">Se lleva todo</span>
       </td>
-      <td>
+      <td class="td-botones">
         <button class="btn btn-outline-primary btn-sm" (click)="decreasequantityInput(product)">-</button
         ><input type="number" [(ngModel)]="product.quantityInput" (keyup)="onInputInQuantity($event,product)">
         <button class="btn btn-outline-primary btn-sm" (click)="upquantityInput(product)">+</button>
