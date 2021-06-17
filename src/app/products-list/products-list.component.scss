@@ -9,8 +9,14 @@
 input[type="number"] {
   width: 50px;
   text-align: center;
+  -moz-appearance: textfield; /* Firefox */
 }
 
-.td-botones{
-  
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.td-botones {
 }

@@ -30,10 +30,12 @@
         <span class="badge bg-warning text-dark" *ngIf="product.altstock <= 0 && product.stock>0">Se lleva todo</span>
       </td>
       <td class="td-botones">
-        <button class="btn btn-outline-primary btn-sm" (click)="decreasequantityInput(product)">-</button
-        ><input type="number" [(ngModel)]="product.quantityInput" (keyup)="onInputInQuantity($event,product)">
+        <div *ngIf="product.stock>1">
+        <button class="btn btn-outline-primary btn-sm" (click)="decreasequantityInput(product)">-</button>
+        <input type="number" [(ngModel)]="product.quantityInput" (keyup)="onInputInQuantity($event,product)">
         <button class="btn btn-outline-primary btn-sm" (click)="upquantityInput(product)">+</button>
         <button class="btn btn-primary btn-sm button-agregar">Agregar</button>
+        </div>
       </td>
     </tr>
   </tbody>

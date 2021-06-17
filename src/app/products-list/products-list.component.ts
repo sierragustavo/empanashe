@@ -44,7 +44,6 @@ export class ProductsListComponent implements OnInit {
   constructor() {
     this.products.forEach((product) => {
       product.altstock = product.stock;
-      console.log('recorriendo');
     });
   }
 
@@ -62,7 +61,7 @@ export class ProductsListComponent implements OnInit {
     }
   }
 
-  onChangequantityInput(product: Product): void {
+  onChangeQuantityInput(product: Product): void {
     if (product.quantityInput > 0) {
       if (product.stock - product.quantityInput >= 0) {
         product.altstock = product.stock - product.quantityInput;
@@ -71,7 +70,7 @@ export class ProductsListComponent implements OnInit {
   }
 
   onInputInQuantity(event: KeyboardEvent, product: Product) {
-    if (event.key == 'Enter') this.onChangequantityInput(product);
+    if (event.key == 'Enter') this.onChangeQuantityInput(product);
   }
 
   ngOnInit(): void {}
