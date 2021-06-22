@@ -37,26 +37,7 @@
         >
       </td>
       <td class="td-botones">
-        <div *ngIf="product.stock > 1">
-          <button
-            class="btn btn-outline-primary btn-sm"
-            (click)="decreasequantityInput(product)"
-          >
-            -
-          </button>
-          <input
-            type="number"
-            [(ngModel)]="product.quantityInput"
-            (keyup)="onInputInQuantity($event, product)"
-          />
-          <button
-            class="btn btn-outline-primary btn-sm"
-            (click)="upquantityInput(product)"
-          >
-            +
-          </button>
-          <button class="btn btn-primary btn-sm button-agregar">Agregar</button>
-        </div>
+        <app-input-integer [product]="product" *ngIf="product.stock > 1"> </app-input-integer>
       </td>
     </tr>
   </tbody>
