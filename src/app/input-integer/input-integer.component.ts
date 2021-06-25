@@ -8,7 +8,7 @@ import { Product } from '../products-list/product';
 })
 export class InputIntegerComponent implements OnInit {
   constructor() {
-    
+
   }
 
   @Input()
