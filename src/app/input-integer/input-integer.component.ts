@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,EventEmitter,Output } from '@angular/core';
 import { Product } from '../products-list/product';
 
 @Component({
@@ -12,33 +12,50 @@ export class InputIntegerComponent implements OnInit {
   }
 
   @Input()
-  product!: Product;
+  quantityInput!: number;
+
+  @Input()
+  stock!: number;
+
+  @Input()
+  special!: boolean;
+
+  @Output()
+  quantityInputChange: EventEmitter<number> = new EventEmitter<number>();
+
+  @Output()
+  stockChange: EventEmitter<number> = new EventEmitter<number>();
 
   ngOnInit(): void {}
 
-  upquantityInput(product: Product) {
-    if (product.altstock > 0) {
-      product.quantityInput++;
-      product.altstock--;
+  upquantityInput() {
+    if (this.stock > 0) {
+      this.quantityInput++;
+      this.stock--;
     }
+    this.stockChange.emit(this.stock);
+    this.quantityInputChange.emit(this.quantityInput);
   }
 
-  decreasequantityInput(product: Product) {
-    if (product.quantityInput > 0) {
-      product.quantityInput--;
-      product.altstock++;
+  decreasequantityInput() {
+    if (this.quantityInput > 0) {
+      this.quantityInput--;
+      this.stock++;
     }
+    this.stockChange.emit(this.stock);
+    this.quantityInputChange.emit(this.quantityInput);
   }
 
-  onChangeQuantityInput(product: Product): void {
-    if (product.quantityInput > 0) {
-      if (product.stock - product.quantityInput >= 0) {
-        product.altstock = product.stock - product.quantityInput;
-      } else alert('te pasaste');
-    } else alert('mas de 0');
+  onChangeQuantityInput(): void {
+    if (this.quantityInput > 0) {
+      if (this.stock - this.quantityInput >= 0) {
+        this.stock = this.stock - this.quantityInput;
+        this.quantityInputChange.emit(this.quantityInput);
+      } else alert('Stock maximo: ' + this.stock);
+    } else alert('Cargar mas de 0');
   }
 
-  onInputInQuantity(event: KeyboardEvent, product: Product) {
-    if (event.key == 'Enter') this.onChangeQuantityInput(product);
+  onInputInQuantity(event: KeyboardEvent) {
+    if (event.key == 'Enter') this.onChangeQuantityInput();
   }
 }

@@ -1,22 +1,13 @@
 <td class="td-botones">
-  <div *ngIf="product.stock > 1">
+  <div *ngIf="this.stock >= 0">
     <button
       class="btn btn-outline-primary btn-sm"
-      (click)="decreasequantityInput(product)"
+      (click)="decreasequantityInput()"
     >
-      -
+      - 
     </button>
-    <input
-      type="number"
-      [(ngModel)]="product.quantityInput"
-      (keyup)="onInputInQuantity($event, product)"
+    <input type="number" [(ngModel)]="this.quantityInput" (keyup)="onInputInQuantity($event)"
     />
-    <button
-      class="btn btn-outline-primary btn-sm"
-      (click)="upquantityInput(product)"
-    >
-      +
-    </button>
-    <button class="btn btn-primary btn-sm button-agregar">Agregar</button>
+    <button class="btn btn-outline-primary btn-sm" (click)="upquantityInput()"> + </button>
   </div>
 </td>
